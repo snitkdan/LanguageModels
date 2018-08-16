@@ -12,15 +12,19 @@ def head(n, prob_table):
         if c == n:
             break
 
+
+def run(Model, corpus, preview_len):
+    m = Model(corpus)
+    m.train()
+    head(preview_len, m.prob_table)
+
+
 def run_empirical():
-    e = EmpiricalDistribution(brown_clean)
-    e.train()
-    head(5, e.prob_table)
+    run(EmpiricalDistribution, brown_clean, 1)
+
 
 def run_unigram():
-    u = Unigram(brown_clean)
-    u.train()
-    head(10, u.prob_table)
+    run(Unigram, brown_clean, 10)
 
 
 if __name__ == '__main__':
