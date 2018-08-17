@@ -12,12 +12,15 @@ def head(n, prob_table):
         c += 1
         if c == n:
             break
+    print()
 
 
 def run(model, corpus, preview_len):
     m = model(corpus)
     m.train()
-    head(preview_len, m.prob_table)
+    #head(preview_len, m.prob_table)
+    #head(preview_len, m.count_table)
+    print(m.generate_sentence())
     print()
 
 
@@ -32,6 +35,6 @@ def run_bigram():
 
 
 if __name__ == '__main__':
-    run_empirical()
-    run_unigram()
+    # run_empirical()
+    # run_unigram()
     run_bigram()
